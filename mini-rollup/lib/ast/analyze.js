@@ -10,7 +10,7 @@ const walk = require('./walk')
  * @param {*} module 
  */
 
-function analyse(ast, magicString){
+function analyse(ast, magicString,module){
 
     //创建全局作用域
     let scope = new Scope()
