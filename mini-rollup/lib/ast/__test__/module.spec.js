@@ -1,4 +1,8 @@
 const Module = require('../module')
+
+const fs = require('fs')
+
+
 describe('测试模块化',()=>{
     describe('构造方法',()=>{
         describe('imports',()=>{

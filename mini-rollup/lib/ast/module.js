@@ -5,13 +5,17 @@ const analyse = require('./analyze')
 const SYSTEM_VARS = ['console','log']
 
 function has(obj,prop){
-    return Object.prototype.hasOwnProperty(obj, prop)
+    return obj[prop]!==undefined
+    //return Object.prototype.hasOwnProperty(obj, prop)
 }
 
 class Module{
-    constructor( {code} ){
+    constructor( {code, path, bundle} ){
 
         this.code = new MagicString(code)
+        this.path = path
+        this.bundle = bundle
+        
 
         this.ast = parse(code, {
             sourceType:"module",
@@ -107,6 +111,22 @@ class Module{
         if(has(this.imports,name)){
             //TODO
             //加载模块
+
+            // import项的声明部分
+            const ImportDeclaration = this.imports[name];
+            
+            const source = ImportDeclaration.source
+
+            const module = this.bundle.fetchModule(
+                source,
+                this.path
+            );
+
+            const exportData = module.exports[ImportDeclaration.name];
+
+            return module.define(exportData.localName)
+
+
         }else{
            //本模块
            const statement = this.definitions[name]
