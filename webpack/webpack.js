@@ -39,7 +39,7 @@ function getModuleInfo(file){
             const dirname = path.dirname(file) 
             //console.log('dirname',dirname)
             
-            const abspath =  '.\\'+path.join(dirname,node.source.value) // ./add.js
+            const abspath =  './'+path.join(dirname,node.source.value) // ./add.js
             //console.log('abspath',abspath)
             deps[node.source.value] = abspath
         }
@@ -50,9 +50,66 @@ function getModuleInfo(file){
         presets: ['@babel/preset-env']
     })
 
-    const moduleInfo = {file, deps, code}
+    const moduleInfo = { file, deps, code }
     return moduleInfo
 }
 
-const info = getModuleInfo('./src/index.js')
- console.log('info',info)
+/**
+ * 解析模块
+ * @param {*} file 
+ */
+function parseModule(file) {
+    const entry = getModuleInfo(file)
+    const temp = [entry]
+    //输出的依赖图
+    const depsGraph = {}
+
+    getDeps(temp, entry)
+
+    temp.forEach(info=>{
+        depsGraph[info.file] = {
+            deps: info.deps,
+            code: info.code
+        }
+    })
+
+    return depsGraph;
+    
+}
+
+/**
+ * 用于获取依赖
+ */
+function getDeps(temp, { deps }) {
+    Object.keys(deps).forEach(key=>{
+        const child = getModuleInfo(deps[key])
+        temp.push(child)
+        getDeps(temp,child)
+    })
+}
+
+// const content = parseModule('./src/index.js')
+// console.log('content',content)
+
+function bundle(file) {
+    const depsGraph = JSON.stringify(parseModule(file))
+    return `(function (graph) {
+        function require(file) {
+            function absRequire(relPath) {
+                return require(graph[file].deps[relPath])
+            }
+        var exports = {};
+        (function (require,exports,code) {
+            eval(code)
+        })(absRequire,exports,graph[file].code)
+            return exports
+        }
+        require('${file}')
+    })(${depsGraph})`;
+}
+
+const content = bundle('./src/index.js')
+console.log('content',content)
+
+!fs.existsSync("./dist") && fs.mkdirSync("./dist");
+fs.writeFileSync("./dist/bundle.js", content);
