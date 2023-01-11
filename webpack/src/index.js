@@ -1,3 +1,3 @@
-import { add } from './add'
-
-console.log(add(3,3))
+//var add = require('./add').default
+import add from './add.js'
+console.log(add(2,4))

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./src/index.js"></script>
+<title>Document</title>
+</head>
+<body>
+</body>
+<script>
+
+    (function(list){
+        function require(file){// add.js //index.js
+            //TODO: file 现在是固定的
+            
+            var exports = {};
+            // 自运行函数
+    
+            (function (exports, code){
+                eval(code)
+                
+            })(exports,list[file]);
+            //exports 可以使用
+            //console.log(exports.default(2,4))
+    
+            return exports
+        }
+        //入口
+        require('index.js')
+    })({'add.js':`exports.default = function(a,b){return a + b}`,
+        'index.js':`var add = require('add.js').default;
+                console.log(add(2,4));`,
+    })
+
+    //bundle.js
+    /*
+    const list = {
+        'add.js':`exports.default = function(a,b){return a + b}`,
+        'index.js':`var add = require('./add.js').default;
+                    console.log(add(2,4));`
+    }
+    */
+
+</script>
+</html>
