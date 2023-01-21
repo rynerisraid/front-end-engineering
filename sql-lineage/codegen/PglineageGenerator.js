@@ -44,7 +44,6 @@ class Visitor extends PgSqlVisitor{
      * @returns 
      */
     visitTerminal(ctx){
-        console.log('visitTerminal',ctx.getText())
         
         return ctx.getText();
         
@@ -53,7 +52,7 @@ class Visitor extends PgSqlVisitor{
     
 
     visitAnysconst(ctx){
-        console.log('visitAnysconst',ctx.getText())
+        
         return this.visitChildren(ctx)
     }
 
