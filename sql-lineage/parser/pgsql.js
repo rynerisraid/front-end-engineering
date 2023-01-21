@@ -1,8 +1,26 @@
 const { InputStream, CommonTokenStream, Lexer } = require('antlr4')
+
 const PgSQLLexer = require('../lib/PostgreSQLLexer');
 const PgSQLParser = require('../lib/PostgreSQLParser');
 const ErrorListener = require('../codegen/ErrorListener');
 
+const pgsql = function(){
+
+}
+
+pgsql.createLexer = function createLexer(input){
+    const chars = new InputStream(input);
+    const lexer = new PgSQLLexer.PostgreSQLLexer(chars);
+    return lexer
+}
+
+pgsql.createParserFromLexer = function createParserFromLexer(lexer){
+    const tokens = new CommonTokenStream(lexer);
+    const parser = new PgSQLParser.PostgreSQLParser(tokens);
+    return parser
+}
+
+module.exports = pgsql
 /**
 import { InputStream, CommonTokenStream, Lexer } from 'antlr4';
 import { PostgreSQLLexer } from '../lib/pgsql/PostgreSQLLexer';

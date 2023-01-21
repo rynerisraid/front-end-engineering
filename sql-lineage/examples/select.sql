@@ -1,0 +1,1 @@
+select a.col1,a.col2,a.col3 from intf.tk_prod_day a
