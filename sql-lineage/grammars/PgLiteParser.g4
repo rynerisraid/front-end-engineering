@@ -87,5 +87,4 @@ common_table_expr
 all_or_distinct
    : ALL
    | DISTINCT
-   |
    ;

@@ -23,7 +23,7 @@ class Visitor extends PgSqlVisitor{
      * 
      * @param {*} ctx 
      * @returns {string} 
-     
+    */ 
     
     visitChildren(ctx){
         let code = ''
@@ -34,7 +34,7 @@ class Visitor extends PgSqlVisitor{
       
         return code.trim();
     }
-    */
+    
     
 
 

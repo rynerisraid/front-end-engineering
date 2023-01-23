@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "antlr-hello": "antlr4 -Dlanguage=JavaScript -lib grammars -o libs/hello -visitor -Xexact-output-dir grammars/Hello.g4"
+    "antlr-hello": "antlr4 -Dlanguage=JavaScript -lib grammars -o libs/hello -visitor -Xexact-output-dir grammars/Hello.g4",
+    "antlr-expr": "antlr4 -Dlanguage=JavaScript -lib grammars -o libs/expr -visitor -Xexact-output-dir grammars/Expr.g4"
   },
   "keywords": [],
   "author": "",

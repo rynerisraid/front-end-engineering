@@ -17,11 +17,13 @@ describe('Hello Antlr4',()=>{
         const parser = new HelloParser(tokens);
 
         const tree = parser.s();
-        const generator = new HelloGenerator()
-        const output = generator.start(tree);
-        console.log(generator.node)
-      
-        console.log(output);
-        
+        //const generator = new HelloGenerator()
+        //const output = generator.start(tree);
+        //console.log(tree.toStringTree(parser.ruleNames));
+        expect(tree.toStringTree(parser.ruleNames)).toEqual('(s hello world)')
     });
+
+    it('should get node',()=>{
+        
+    })
 })
