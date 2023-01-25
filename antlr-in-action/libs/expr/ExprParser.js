@@ -425,6 +425,7 @@ ParensContext.prototype.accept = function(visitor) {
 
 function MulDivContext(parser, ctx) {
 	ExprContext.call(this, parser);
+    this.op = null; // Token;
     ExprContext.prototype.copyFrom.call(this, ctx);
     return this;
 }
@@ -467,6 +468,7 @@ MulDivContext.prototype.accept = function(visitor) {
 
 function AddSubContext(parser, ctx) {
 	ExprContext.call(this, parser);
+    this.op = null; // Token;
     ExprContext.prototype.copyFrom.call(this, ctx);
     return this;
 }
@@ -645,9 +647,10 @@ ExprParser.prototype.expr = function(_p) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 5)");
                     }
                     this.state = 32;
+                    localctx.op = this._input.LT(1);
                     _la = this._input.LA(1);
                     if(!(_la===ExprParser.MUL || _la===ExprParser.DIV)) {
-                    this._errHandler.recoverInline(this);
+                        localctx.op = this._errHandler.recoverInline(this);
                     }
                     else {
                     	this._errHandler.reportMatch(this);
@@ -665,9 +668,10 @@ ExprParser.prototype.expr = function(_p) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 4)");
                     }
                     this.state = 35;
+                    localctx.op = this._input.LT(1);
                     _la = this._input.LA(1);
                     if(!(_la===ExprParser.ADD || _la===ExprParser.SUB)) {
-                    this._errHandler.recoverInline(this);
+                        localctx.op = this._errHandler.recoverInline(this);
                     }
                     else {
                     	this._errHandler.reportMatch(this);
