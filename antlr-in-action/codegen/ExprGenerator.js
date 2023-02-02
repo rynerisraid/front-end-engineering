@@ -7,7 +7,10 @@ const {
 
 class Visitor extends ExprVisitor{
  
-    memory = {};
+    constructor(props) {
+        super(props)
+        this.memory = {};
+    }
 
     start(ctx){
         return this.visitProg(ctx)
@@ -23,7 +26,7 @@ class Visitor extends ExprVisitor{
     visitPrintExpr(ctx){
         let value = this.visit(ctx.expr())
         console.log(value)
-        return 0
+        return value
     }
 
     visitInt(ctx){
@@ -41,7 +44,7 @@ class Visitor extends ExprVisitor{
     visitMulDiv(ctx){
         let left  = this.visit(ctx.expr(0));
         let right = this.visit(ctx.expr(1));
-        if(ctx.op.getType()==='*'){
+        if(ctx.op.text==='*'){
             return left * right;
         }
         return left / right;
@@ -51,7 +54,7 @@ class Visitor extends ExprVisitor{
         let left = this.visit(ctx.expr(0));
         let right = this.visit(ctx.expr(1));
 
-        if(ctx.op.getType()==='+'){
+        if(ctx.op.text==='+'){
             return left + right;
         }
         return left - right;

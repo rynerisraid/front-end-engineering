@@ -50,6 +50,7 @@ describe('Hello Expr',()=>{
 
         const generator = new ExprGenerator();
         const output = generator.start(tree);
+        console.log(output)
     
     });
 
