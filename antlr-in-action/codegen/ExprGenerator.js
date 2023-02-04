@@ -7,7 +7,10 @@ const {
 
 class Visitor extends ExprVisitor{
  
-    memory = {};
+    constructor(props) {
+        super(props)
+        this.memory = {};
+    }
 
     start(ctx){
         return this.visitProg(ctx)
@@ -23,7 +26,7 @@ class Visitor extends ExprVisitor{
     visitPrintExpr(ctx){
         let value = this.visit(ctx.expr())
         console.log(value)
-        return 0
+        return value
     }
 
     visitInt(ctx){
