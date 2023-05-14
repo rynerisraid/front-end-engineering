@@ -1,8 +1,11 @@
-import FormilyPage from "./pages/MyRCFormPage";
-import "./App.css";
+// import AntdFormPage from "./pages/AntdFormPage";
+import MyRCFieldForm from "./pages/MyRCFieldForm";
 
-function App() {
-  return <div className="App">{/* <FormilyPage/> */}</div>;
+export default function App(props) {
+  return (
+    <div>
+      {/* <AntdFormPage /> */}
+      <MyRCFieldForm />
+    </div>
+  );
 }
-
-export default App;
