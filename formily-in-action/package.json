@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD:formly-in-action/package.json
   "name": "form-nut",
   "version": "0.1.0",
   "private": true,
@@ -10,6 +11,24 @@
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.7.3",
     "craco-less": "^1.17.0",
+=======
+  "name": "formily-in-action",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "@formily/antd": "^2.2.23",
+    "@formily/core": "^2.2.23",
+    "@formily/react": "^2.2.23",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.4.7",
+    "craco-less": "^2.0.0",
+    "less": "^4.1.3",
+    "less-loader": "^11.1.0",
+    "moment": "^2.29.4",
+>>>>>>> c684ff4a5a3f5c3b1487448dac0db29212bb0c2e:formily-in-action/package.json
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "4.0.0",
