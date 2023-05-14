@@ -3,6 +3,7 @@ const CracoLessPlugin = require("craco-less");
 const path = require('path')
 const pathResolve = (pathUrl)=>path.join(__dirname,pathUrl)
 
+
 module.exports = {
   babel: {
     //用来支持装饰器
@@ -11,7 +12,7 @@ module.exports = {
   webpack:{
     alias:{
         '@': pathResolve("src")
-      }
+    },
   },
   plugins: [
     {
@@ -26,8 +27,8 @@ module.exports = {
             },
             javascriptEnabled: true
           }
-        }
-      }
+        },
+      },
     }
   ]
 };
