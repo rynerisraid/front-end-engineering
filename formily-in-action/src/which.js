@@ -1,11 +1,19 @@
 import { createForm } from '@formily/core'
+// import { 
+//     FormProvider,
+//     Field,
+//     FormConsumer,
+//     FieldContext,
+//     useParentForm
+// } from '@formily/react'
+
 import { 
     FormProvider,
     Field,
     FormConsumer,
     FieldContext,
     useParentForm
-} from '@formily/react'
+} from './components/my-formily/react'
 
 import {observer} from "@formily/reactive-react";
 
