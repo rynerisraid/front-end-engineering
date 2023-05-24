@@ -13,6 +13,11 @@ export default function Submit({
   return (
     <button
       onClick={(e) => {
+        if(onClick){
+          if(onClick(e)===false){
+            return ;
+          }
+        }
         if (onSubmit) {
           form.submit(onSubmit).then(onSubmitSuccess).catch(onSubmitFailed);
         }

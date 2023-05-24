@@ -8,12 +8,12 @@ const FormItem = observer(({children}) => {
 
   return (
     <div>
-      <div>{field.title}</div>
-      {children}
+      <div className="green">{field.title}</div>
+        {children}
       <div className="red">{field.selfErrors.join(",")}</div>
     </div>
     
   )
 });
 
-export default FormItem
+export default FormItem;
