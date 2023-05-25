@@ -1,6 +1,6 @@
 import { FormProvider } from "./FormProvider";
 import Field from "./Field";
-import { FieldContext, FormContext } from "./context";
+import { FieldContext } from "./context";
 import FormConsumer from './FormConsumer'
 import { useParentForm } from "./hook";
 
@@ -9,4 +9,4 @@ import { useParentForm } from "./hook";
  * useParentForm 自定义hook
  */
 
-export { FormProvider, FormContext, Field, FormConsumer, FieldContext, useParentForm };
+export { FormProvider, Field, FormConsumer, FieldContext, useParentForm };
