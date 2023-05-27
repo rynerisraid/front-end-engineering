@@ -17,8 +17,6 @@ webpack
 npm init -y
 npm i koa -s
 
-
-
 # CLI
 
 主要技能
@@ -44,7 +42,6 @@ pnpm install commander
 
 如果是在windows上需要修改默认js引擎
 
-
 * 执行以下操作，它更改了Windows注册表中.js扩展的关联(仅对 Current 用户帐户生效，但相反，不需要海拔):
 
 ```
@@ -55,3 +52,7 @@ New-Item -Force HKCU:\SOFTWARE\Classes\.js -Value 'NodeJSFile'
 从那时起，调用*.js文件将直接使用node.js(node.exe)执行它们.
 
 请注意，您必须在要以这种方式行为的每台机器上执行此操作.
+
+
+
+# Redux
