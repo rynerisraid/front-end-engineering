@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { FormContext } from './context'
 
-export function FormProvider({form, children}){
+export default function FormProvider({form, children}){
 
     useEffect(()=>{
         form.onMount();

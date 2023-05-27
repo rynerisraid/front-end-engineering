@@ -6,8 +6,8 @@ import ReactivePage from './pages/ReactivePage';
 function App() {
   return (
     <div className="App">
-      <AntdPage/>
-      {/* <ReactivePage/> */}
+      {/* <AntdPage/> */}
+      <ReactivePage/>
       <ReactPage/>
      
     </div>

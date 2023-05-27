@@ -1,12 +1,13 @@
-import { FormProvider } from "./FormProvider";
+import FormProvider from "./FormProvider";
 import Field from "./Field";
-import { FieldContext } from "./context";
 import FormConsumer from './FormConsumer'
-import { useParentForm } from "./hook";
+import { FieldContext } from "./context";
+import { useParentForm } from "./hooks";
 
 
 /**
  * useParentForm 自定义hook
+ * FieldContext
  */
 
 export { FormProvider, Field, FormConsumer, FieldContext, useParentForm };

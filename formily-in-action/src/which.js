@@ -6,7 +6,6 @@ import { observable, Tracker } from '@formily/reactive'
 //     Field,
 //     FormConsumer,
 //     FieldContext,
-//     FormContext,
 //     useParentForm
 // } from '@formily/react'
 
@@ -16,12 +15,12 @@ import {
     FormProvider,
     Field,
     FormConsumer,
-    FormContext,
     FieldContext,
     useParentForm
 } from './components/my-formily/react'
 
 //import {observer} from "@formily/reactive-react";
+//正确
 import {observer} from '@/components/my-formily/reactive-react'
 
 //import { FormItem, Input, Submit } from './components/my-rc-field-form'
@@ -40,6 +39,5 @@ export {
     Tracker,
     FormItem, 
     Input, 
-    Submit,
-    FormContext,
+    Submit
 }

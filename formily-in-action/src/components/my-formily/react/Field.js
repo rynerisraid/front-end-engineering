@@ -1,14 +1,15 @@
 import React, { useContext } from 'react'
-import { FieldContext, observer } from '@/which'
+import { FieldContext } from '@/which'
 import { FormContext } from './context'
+import { observer } from '@formily/reactive-react';
 
 //响应式要使用 observer
 const Field = observer((props) => {
+
   const form = useContext(FormContext)
   const field = form.createField(props)
   //console.log(form)
-  const component = React.createElement(
-    field.component[0], {
+  const component = React.createElement(field.component[0], {
     ...field.component[1],
     value: field.value,
     onChange: field.onInput
@@ -17,12 +18,10 @@ const Field = observer((props) => {
   const decorator = React.createElement(
     field.decorator[0],
     field.decorator[1],
-    component)
+    component
+  );
 
-  return (
-    <FieldContext.Provider value={field}>{decorator}</FieldContext.Provider>
-  )
-}
-);
+  return <FieldContext.Provider value={field}>{decorator}</FieldContext.Provider>
+});
 
-export default Field
+export default Field;
