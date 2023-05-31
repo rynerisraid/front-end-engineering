@@ -1,7 +1,7 @@
 
 export default function compose(...funcs) {
     if(funcs.length===0){
-        return (arg)=>arg
+        return arg=>arg
     }
     if(funcs.length===1){
         return funcs[0]
@@ -10,5 +10,5 @@ export default function compose(...funcs) {
     return funcs.reduce(
         (a,b)=>
         (...args)=>
-            a(b(args)))
+            a(b(...args)));
 };

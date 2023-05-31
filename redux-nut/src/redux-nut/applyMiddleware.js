@@ -3,7 +3,7 @@ import compose from "./compose";
 
 export default function applyMiddleware(...middlewares) {
 
-    return (createStore)=>(reducer)=>{
+    return createStore=>reducer=>{
     
         const store = createStore(reducer)
         let dispatch = store.dispatch;
@@ -14,7 +14,7 @@ export default function applyMiddleware(...middlewares) {
             dispatch:(action,...args)=>dispatch(action,...args),
         }
 
-        const middlewareChain = middlewares.map((middleware)=>middleware(midApi));
+        const middlewareChain = middlewares.map(middleware=>middleware(midApi));
 
         //加强版的dispath,把所有的中间件函数都执行了，同时还执行store.dispatch
         dispatch = compose(...middlewareChain)(store.dispatch)
